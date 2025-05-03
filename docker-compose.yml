@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  mongo:
+    image: mongo:8.0
+    container_name: ss_grp6_local-mongo
+
+    ports:
+      - "8000:27017"
+
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin  # Admin user
+      MONGO_INITDB_ROOT_PASSWORD: admin  # Admin password
+      MONGO_INITDB_DATABASE: movie_booking_db     # Initial database to create
+
+
+    volumes:
+      - mongo_data:/data/db
+
+volumes:
+  mongo_data: {}
